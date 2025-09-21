@@ -1,0 +1,60 @@
+GET http://localhost:4004/odata/Employees
+
+###
+
+POST http://localhost:4004/odata/Employees
+Content-Type: application/json
+
+{
+      "FIRST_NAME": "Pankaj",
+      "LAST_NAME": "Patel",
+      "GENDER": "Male",
+      "EMAIL": "pankaj.patel@vsdtechno.com",
+      "EXPERIENCE":2,
+      "DESIGNATION":"SAP UI5 & Fiori Consultant",
+      "MODULE":"SAP UI5 & Fiori",
+      "MODULE_TYPE":"Technical",
+      "PHONE_NO": 1234567890
+}
+
+###
+
+GET http://localhost:4004/odata/GetLoggedInUser(Email='pankaj.patel@vsdtechno.com')
+
+###
+
+POST http://localhost:4004/odata/PunchUser
+Content-Type: application/json
+
+{
+    "EMP_ID":"2e079457-491f-484e-9c6f-65617ebd3a7a",
+    "PUNCH_DATE":"18-09-2025",
+    "PUNCH_IN":"10:05:44",
+    "PUNCH_OUT":"07:02:39"
+}
+
+
+###
+
+POST http://localhost:4004/odata/Punch
+Content-Type: application/json
+
+{
+    "Action":"IN",
+    "EmpId":"d2bd671c-448b-4015-9a46-993c8a88ce5a"
+}
+
+###
+
+POST http://localhost:4004/odata/LeaveRequests
+Content-Type: application/json
+
+{
+    "EMP_ID":"d2bd671c-448b-4015-9a46-993c8a88ce5a",
+    "FROM_DATE":"Sept 27, 2025",
+    "TO_DATE":"Sept 28, 2025",
+    "PRIORITY":"High",
+    "TYPE":"Sick Leave",
+    "REASON":"Hospital visit for eye check up",
+    "STATUS":""
+}

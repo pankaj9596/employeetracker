@@ -1,0 +1,38 @@
+{
+  "name": "zemployeetracker",
+  "version": "1.0.0",
+  "description": "Employee Management CAP Application",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js-community/odata-v2-adapter": "^1.15.4",
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/xssec": "^4",
+    "express": "^4",
+    "rimraf": "^6.0.1"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.13.0",
+    "@cap-js/sqlite": "^2",
+    "@sap/cds-dk": ">=8"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "profile" : "cds watch --profile hybrid",
+    "deploy": "rimraf resources mta_archives && mbt build --mtar archive && cf deploy mta_archives/archive.mtar --retries 1"
+  },
+  "cds": {
+    "requires": {
+      "db": "hana",
+      "[production]": {
+        "auth": "xsuaa"
+      },
+      "destinations": true
+    }
+  }
+}
